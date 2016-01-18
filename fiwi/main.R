@@ -9,7 +9,7 @@ yahoo.read <- function(url){
   df$Date <- as.Date(as.character(df$Date))
   return(df)}
 
-print(yahoo.read(ibm_url)
+print(yahoo.read(ibm_url))
 
 
 

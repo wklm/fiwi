@@ -5,11 +5,12 @@ lnkd_url <- "http://real-chart.finance.yahoo.com/table.csv?s=LNKD&a=07&b=24&c=20
 
 yahoo.read <- function(url){
   dat <- read.table(url,header=TRUE,sep=",")
-  df <- dat[,c(1,5)]
-  df$Date <- as.Date(as.character(df$Date))
-  return(df)}
+  return(dat)
+}
 
-print(yahoo.read(ibm_url)
+data = yahoo.read(ibm_url)
 
+adjclose = data[[7]]
 
-
+vol <- sqrt(252) * sd(diff(log(adjclose))) * 100
+print(vol)
